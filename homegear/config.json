@@ -1,0 +1,35 @@
+{
+    "name": "Homegear",
+    "version": "0.1",
+    "slug": "homegear",
+    "description": "Homegear hassio add-on",
+    "auto_uart": true,
+    "url": "https://github.com/tringler/hassio-homegear",
+    "startup": "services",
+    "arch": [
+      "aarch64",
+      "amd64",
+      "armhf",
+      "armv7",
+      "i386"
+    ],
+    "boot": "auto",
+    "ports": {
+      "2001/tcp": 2001
+    },
+    "ports_description": {
+      "2001/tcp": "HomeGear UI"
+    },
+    "map": [
+      "config:rw",
+      "ssl"
+    ],
+    "schema": {
+      "devices": ["match(\/dev\/tty[A-Z]*[0-9]:rwm)"],
+      "ssl": "bool"
+    },
+    "options": {
+      "devices": ["/dev/ttyAMA0:rwm"],
+      "ssl": false
+  }
+}
